@@ -1,16 +1,10 @@
 export default class ArrayBufferConverter {
-  /* constructor() {
-    this.arrayBuffer = undefined;
-  } */
+  load(arrayBuffer) {
+    this.arrayBuffer = arrayBuffer;
+  }
 
-  // load() {}
-
-  toString(arrayBuffer) {
-    const arr = [];
-    const bufferView = new Uint16Array(arrayBuffer);
-    for (let i = 0; i < bufferView.length; i += 1) {
-      arr.push(String.fromCharCode(bufferView[i]));
-    }
-    return arr.join('');
+  toString() {
+    const bufferView = new Uint16Array(this.arrayBuffer);
+    return String.fromCharCode(...bufferView);
   }
 }
